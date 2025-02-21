@@ -1,9 +1,15 @@
 import os
-import sys
+import random
+import numpy as np
 import tensorflow as tf
-from tensorflow.keras.models import Sequential
-from tensorflow.keras.layers import Conv2D, MaxPooling2D, Flatten, Dense, Dropout
-from tensorflow.keras.optimizers import Adam
-from tensorflow.keras.preprocessing.image import ImageDataGenerator
+from tensorflow import keras
+from keras.preprocessing import image
+import sys
 
 sys.stdout.reconfigure(encoding='utf-8')
+
+model_path = r"C:\Users\singo\OneDrive\Desktop\Pneumonia-Detection\pneumonia_model.keras"
+if not os.path.exists(model_path):
+    raise FileNotFoundError(f" Model file not found: {model_path}. Train the model first.")
+
+model = keras.models.load_model(model_path)

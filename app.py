@@ -12,3 +12,18 @@ def predict(img_path):
 
     prediction = model.predict(img_array)
     return "PNEUMONIA" if prediction[0][0] > 0.5 else "NORMAL"
+
+st.title("Pneumonia Detection System")
+st.write("Upload a Chest X-ray Image to Predict Pneumonia.")
+
+uploaded_file = st.file_uploader("Choose an X-ray Image...", type=["jpg", "jpeg", "png"])
+
+if uploaded_file:
+    st.image(uploaded_file, caption="Uploaded Image")
+
+    
+    with open("uploaded.jpg", "wb") as f:
+        f.write(uploaded_file.getbuffer())
+
+    result = predict("uploaded.jpg")
+    st.write(f"Prediction: *{result}*")

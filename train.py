@@ -19,7 +19,7 @@ train_gen = datagen.flow_from_directory(
 val_gen = datagen.flow_from_directory(
     DATASET_PATH + "train/",
     target_size=(150, 150),
-    batch_size=32,
+    batch_size=64,
     class_mode='binary',
     subset='validation'
 )

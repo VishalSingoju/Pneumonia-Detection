@@ -44,4 +44,4 @@ model.compile(optimizer=Adam(learning_rate=0.0001), loss='binary_crossentropy', 
 
 history = model.fit(train_gen, validation_data=val_gen, epochs=10)
 
-model.save("pneumonia_model.keras", save_format="keras")
+model.save("pneumonia_model.h5")
